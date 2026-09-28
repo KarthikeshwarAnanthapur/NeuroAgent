@@ -1,0 +1,32 @@
+# NeuroAgent — Python Backend Requirements
+# ==========================================
+# Install with:  pip install -r requirements.txt
+#
+# Python >= 3.10 recommended
+
+# ── EEG PROCESSING ──────────────────────────────────────────────────────────
+mne>=1.6.0               # Core EEG/MEG signal processing
+mne-connectivity>=0.6.0  # Connectivity measures (optional)
+
+# ── SCIENTIFIC COMPUTING ────────────────────────────────────────────────────
+numpy>=1.26.0
+scipy>=1.12.0
+
+# ── MACHINE LEARNING (for future model training) ─────────────────────────────
+scikit-learn>=1.4.0      # Classifiers, pipelines
+torch>=2.2.0             # Deep learning (optional, for future CNN/LSTM)
+
+# ── LLM / AGENTIC AI ────────────────────────────────────────────────────────
+openai>=1.14.0           # OpenAI GPT API (or swap for google-generativeai)
+# google-generativeai>=0.5.0  # Uncomment to use Gemini
+
+# ── API / WEB SERVER ─────────────────────────────────────────────────────────
+fastapi>=0.110.0         # REST API for frontend ↔ backend communication
+uvicorn[standard]>=0.29.0
+python-multipart>=0.0.9  # For file upload endpoints
+
+# ── UTILITIES ────────────────────────────────────────────────────────────────
+pydantic>=2.6.0          # Data validation
+python-dotenv>=1.0.0     # .env environment variable loading
+loguru>=0.7.0            # Structured logging
+tqdm>=4.66.0             # Progress bars

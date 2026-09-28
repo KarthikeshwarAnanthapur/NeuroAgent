@@ -1,0 +1,69 @@
+{
+  "model_name": "EEGArtifact1DCNN",
+  "architecture": "1D_CNN_Conv3_Gap_Dense",
+  "input_shape": [
+    1,
+    320
+  ],
+  "sampling_rate": 160.0,
+  "window_size_seconds": 2.0,
+  "window_samples": 320,
+  "overlap": 0.5,
+  "classes": {
+    "0": "KEEP",
+    "1": "REMOVE"
+  },
+  "normalization": "z-score per window",
+  "training_subjects": [
+    "S003",
+    "S007",
+    "S008",
+    "S020",
+    "S039",
+    "S002",
+    "S004",
+    "S035",
+    "S029",
+    "S006",
+    "S040",
+    "S011",
+    "S032",
+    "S024",
+    "S047",
+    "S023",
+    "S037",
+    "S010",
+    "S044",
+    "S021",
+    "S034",
+    "S019",
+    "S038",
+    "S043",
+    "S033",
+    "S027",
+    "S048",
+    "S041",
+    "S025"
+  ],
+  "validation_subjects": [
+    "S042",
+    "S049",
+    "S018",
+    "S031",
+    "S045",
+    "S005"
+  ],
+  "test_subjects": [
+    "S009",
+    "S022",
+    "S026",
+    "S028",
+    "S030",
+    "S036",
+    "S046"
+  ],
+  "training_date": "2026-09-26T22:11:26.401663",
+  "best_val_f1": 0.8325,
+  "total_train_windows": 1656512,
+  "total_val_windows": 356902
+}

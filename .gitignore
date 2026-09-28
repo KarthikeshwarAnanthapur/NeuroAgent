@@ -1,0 +1,58 @@
+# EEG & Raw Data
+*.edf
+*.edf.event
+*.fif
+
+# Datasets & Processed Data
+data/raw/
+**/data/raw/
+data/processed/
+**/data/processed/
+data/training/
+**/data/training/
+data/reports/
+**/data/reports/
+
+# Model Weights & Binaries
+*.pth
+*.pt
+*.onnx
+
+# Python & Virtual Environments
+__pycache__/
+**/__pycache__/
+*.py[cod]
+*.pyc
+*.pyo
+*.pyd
+.venv/
+**/.venv/
+venv/
+**/venv/
+env/
+**/env/
+
+# Node & Build Artifacts
+node_modules/
+**/node_modules/
+dist/
+**/dist/
+build/
+**/build/
+
+# Environment Variables & Secrets
+.env
+.env.*
+**/.env
+**/.env.*
+!.env.example
+
+# IDE & OS Files
+.vscode/
+**/.vscode/
+.idea/
+**/.idea/
+*.swp
+*.swo
+.DS_Store
+Thumbs.db
