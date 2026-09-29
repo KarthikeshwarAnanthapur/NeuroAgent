@@ -1,5 +1,6 @@
 """
 batch_process.py — NeuroAgent Batch Processing Engine
+=====================================================
 
 Processes multiple EEG recordings across subjects in a robust, resumable,
 and memory-safe manner. Supports single-subject, multi-subject, single-recording,
