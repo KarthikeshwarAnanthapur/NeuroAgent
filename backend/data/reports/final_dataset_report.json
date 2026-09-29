@@ -1,0 +1,18 @@
+{
+  "subjects_processed": 3,
+  "recordings_processed": 6,
+  "recordings_failed": 1,
+  "total_ica_components": 378,
+  "total_keep": 242,
+  "total_remove": 10,
+  "total_review": 126,
+  "average_quality_score": "100.0% GOOD",
+  "average_artifact_reduction": "16.29%",
+  "training_samples": 189,
+  "validation_samples": 126,
+  "test_samples": 63,
+  "model_accuracy": 0.9787,
+  "model_precision": 0.5,
+  "model_recall": 0.4893,
+  "model_f1": 0.4946
+}

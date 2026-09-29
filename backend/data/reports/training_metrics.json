@@ -1,0 +1,23 @@
+{
+  "evaluation_file": "D:\\NeuroAgent\\backend\\data\\training\\test.csv",
+  "total_windows": 366287,
+  "accuracy": 0.9752,
+  "macro_precision": 0.8172,
+  "macro_recall": 0.9292,
+  "macro_f1": 0.8637,
+  "weighted_f1": 0.9771,
+  "confusion_matrix": [
+    [
+      344275,
+      7293
+    ],
+    [
+      1778,
+      12941
+    ]
+  ],
+  "classes": {
+    "0": "KEEP",
+    "1": "REMOVE"
+  }
+}
