@@ -1,0 +1,152 @@
+{
+  "name": "NeuroAgent EEG Automation",
+  "nodes": [
+    {
+      "parameters": {
+        "httpMethod": "POST",
+        "path": "neuroagent",
+        "responseMode": "responseNode",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.webhook",
+      "typeVersion": 2.1,
+      "position": [
+        0,
+        0
+      ],
+      "id": "0f60f250-e6e5-4035-aeb0-07bfea60ee6a",
+      "name": "Webhook",
+      "webhookId": "f19680b3-72dc-4ceb-a788-ddc26f5b69c9"
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "http://localhost:3000/api/run-analysis",
+        "sendBody": true,
+        "specifyBody": "json",
+        "jsonBody": "={\n  \"subject\": \"{{$json.body.subject}}\",\n  \"recording\": \"{{$json.body.recording}}\",\n  \"filename\": \"{{$json.body.filename}}\",\n  \"force\": true\n}",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.5,
+      "position": [
+        224,
+        0
+      ],
+      "id": "3f039ab6-dcb9-44c5-bfe3-0fdea0191748",
+      "name": "HTTP Request"
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict",
+            "version": 3
+          },
+          "conditions": [
+            {
+              "id": "8290ef68-5b34-42c7-aee5-003db79fa66f",
+              "leftValue": "={{JSON.parse($json.pipeline_output).status}}",
+              "rightValue": "SUCCESS",
+              "operator": {
+                "type": "string",
+                "operation": "equals"
+              }
+            },
+            {
+              "id": "d170de6d-5b2f-4445-9666-54c8c207dc35",
+              "leftValue": "",
+              "rightValue": "",
+              "operator": {
+                "type": "string",
+                "operation": "equals",
+                "name": "filter.operator.equals"
+              }
+            }
+          ],
+          "combinator": "and"
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2.3,
+      "position": [
+        672,
+        0
+      ],
+      "id": "46076280-7796-440c-b4b3-96fa2f918346",
+      "name": "If"
+    },
+    {
+      "parameters": {
+        "options": {}
+      },
+      "type": "n8n-nodes-base.respondToWebhook",
+      "typeVersion": 1.5,
+      "position": [
+        896,
+        -96
+      ],
+      "id": "5b7b4ab4-350e-4f01-a294-4d3d2ee37ddb",
+      "name": "Respond to Webhook1"
+    }
+  ],
+  "pinData": {},
+  "connections": {
+    "Webhook": {
+      "main": [
+        [
+          {
+            "node": "HTTP Request",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "HTTP Request": {
+      "main": [
+        [
+          {
+            "node": "If",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "If": {
+      "main": [
+        [
+          {
+            "node": "Respond to Webhook1",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Respond to Webhook1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "active": false,
+  "settings": {
+    "executionOrder": "v1",
+    "binaryMode": "separate"
+  },
+  "versionId": "7dbcd007-a02a-415c-bc0d-6c850133862e",
+  "meta": {
+    "templateCredsSetupCompleted": true,
+    "instanceId": "f059f315b8d1212897b444e3ccb966e2ebbe3e0ecc0cfde6f1fea9df4ca20cce"
+  },
+  "nodeGroups": [],
+  "id": "AqY3B19tIN5ZezxV",
+  "tags": []
+}
